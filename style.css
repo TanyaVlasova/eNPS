@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url(GothamPro.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.enps{
+    width: 700px;
+    height: 900px;
+    margin: auto;
+    border-radius: 30px;
+    font-family: 'Gotham Pro', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #555;
+}
+
+.enps__form{
+    margin: 0 auto 100px;
+}
+
+.enps__pie-chart{
+    margin: 0 auto 100px;
+}
+
+.enps__results{
+    margin: 0 auto;
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form__label{
+    font-size: 14px;
+    color: #555;
+}
+
+.form > *{
+    margin: auto 15px auto 0;
+}
+
+.form :last-child{
+    margin: auto 0;
+}
+
+.form__text{
+    width: 80px;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    line-height: 35px;
+    color: #555;
+    font-size: 14px;
+}
+
+.form__text:focus{
+    border: 1px solid rgb(163, 163, 163);
+}
+
+.form__submit{
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid rgb(230, 230, 230);
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;
+    line-height: 35px;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form__submit:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.form__submit:active{
+    background-color: rgb(177, 177, 177);
+}
+
+.pie-chart{
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.pie-chart__svg{
+    width: 100%;
+    height: 100%;
+    transform: rotate(-61.5deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pie-chart__base{
+    fill: transparent;
+    stroke: #ececec;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-dasharray: 314.15;
+    stroke-dashoffset: 50;
+}
+
+.pie-chart__promoter{
+    fill: transparent;
+    stroke: #70a84b;
+    stroke-width: 6.2px;
+    stroke-linecap: round;
+    stroke-dasharray: 314.15; /* от 314.15 до 50 */
+    stroke-dashoffset: 314.15;
+    transition: stroke-dashoffset 1500ms ease-out;
+}
+
+.pie-chart__skeptic{
+    fill: transparent;
+    stroke: #fcd329;
+    stroke-width: 6.4px;
+    stroke-linecap: round;
+    stroke-dasharray: 314.15; /* от 314.15 до 50 */
+    stroke-dashoffset: 314.15;
+    transition: stroke-dashoffset 1500ms ease-out;
+}
+
+.pie-chart__critic{
+    fill: transparent;
+    stroke: #d6442e;
+    stroke-width: 6.6px;
+    stroke-linecap: round;
+    stroke-dasharray: 314.15 314.15; /* от 314.15 до 50 */
+    stroke-dashoffset: 314.15;
+    transition: stroke-dashoffset 1500ms ease-out;
+}
+
+.pie-chart__flag{
+    width: 90px;
+    fill: #ddd;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.pie-chart__text{
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pie-chart__percent-whole{
+    font-size: 6rem;
+    position: relative;
+}
+
+.pie-chart__percent-decimal{
+    font-size: 3rem;
+}
+
+.pie-chart__percent-whole::after{
+    content: '%';
+    font-size: 2rem;
+    color: #888;
+    position: absolute;
+    top: 0;
+    right: 2px;
+}
+
+.pie-chart__loyalty{
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.pie-chart__level{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fcd329;
+    line-height: 120%;
+}
+
+.pie-chart__segment{
+    font-size: 1.2rem;
+    color: #888;
+    line-height: 120%;
+}
+
+.pie-chart__difference{
+    font-size: 2rem;
+    color: #70a84b;
+    position: relative;
+    padding-left: 35px;
+    line-height: 200%;
+}
+
+.pie-chart__difference::before{
+    content: '◤';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+}
+
+
+.results{
+    width: 400px;
+    display: grid;
+    gap: 20px;
+}
+
+.results__item{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr 3fr;
+    gap: 10px;
+}
+
+.results__item :first-child{
+    margin-right: auto;
+}
+
+.results__item :last-child{
+    margin-left: auto;
+}
+
+.results__category,
+.results__amount{
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.results__amount{
+    text-align: right;
+}
+
+.results__users{
+    line-height: 120%;
+    position: relative;
+    color: #999;
+    padding-right: 20px;
+}
+
+.results__users::after{
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    background: url(human.svg) no-repeat;
+}
+
+.bar-chart{
+    width: 130px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgb(201, 201, 201);
+    position: relative;
+}
+
+.bar-chart__svg{
+    
+}
+
+.bar-chart__difference{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+}
+
+.bar-chart__base{
+    width: 100%;
+    height: 100%;
+    fill: rgb(240, 240, 240);
+}
+
+.bar-chart__promoter-new{
+    width: 0%;
+    fill: #70a84b;
+    transition: width 500ms;
+}
+
+.bar-chart__promoter-last{
+    width: 0%;
+    fill: #abd191;
+    transition: width 500ms;
+}
+
+.bar-chart__skeptic-new{
+    width: 0%;
+    fill: #fcd329;
+    transition: width 500ms;
+}
+
+.bar-chart__skeptic-last{
+    width: 0%;
+    fill: #fde999;
+    transition: width 500ms;
+}
+
+.bar-chart__critic-new{
+    width: 0%;
+    fill: #d6442e;
+    transition: width 500ms;
+}
+
+.bar-chart__critic-last{
+    width: 0%;
+    fill: #f59d90;
+    transition: width 500ms;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eNPS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <script src="script.js" defer></script>
+</head>
+<body>     
+    <article class="enps">
+        <form action="" class="form enps__form" name="calc">
+            <label class="form__label" for="form-promoter"></label>
+            <input class="form__text" type="text" name="calc-text" id="form-promoter">
+            <label class="form__label" for="form-skeptic"></label>
+            <input class="form__text" type="text" name="calc-text" id="form-skeptic">
+            <label class="form__label" for="form-critic"></label>
+            <input class="form__text" type="text" name="calc-text" id="form-critic">
+            <input class="form__submit" type="submit" name="calc-submit" value="Вычислить">
+        </form>
+        <div class="pie-chart enps__pie-chart">
+            <svg class="pie-chart__svg" viewBox="-5 -5 110 110" xmlns="http://www.w3.org/2000/svg">
+                <circle class="pie-chart__base" cx="50" cy="50" r="50"/>
+                <circle class="pie-chart__promoter" cx="50" cy="50" r="50"/>
+                <circle class="pie-chart__skeptic" cx="50" cy="50" r="50"/>
+                <circle class="pie-chart__critic" cx="50" cy="50" r="50"/>
+            </svg>
+            <svg class="pie-chart__flag" id="flag" viewBox="-0.3 0 10.079 12.329" xmlns="http://www.w3.org/2000/svg">
+                <g transform="matrix(.35278 0 0 -.35278 -167.323 215.415)">
+                    <path d="M0 0a1.959 1.959 0 0 1-1.796-2.737c.179-.408.463-1.249.463-1.985v-28.891a1.335 1.335 0 1 1 2.669 0v28.891c0 .736.283 1.577.459 1.985A1.958 1.958 0 0 1 0 0" transform="translate(475.41 610.624)"/>
+                    <path d="M0 0c-.27-.368-.267-.863.008-1.198a31.766 31.766 0 0 1 4.397-4.395c1.255-1.025-.381-1.772-.748-1.928-7.47-3.191-14.934 3.485-22.399 1.452v15.76c7.477 2.034 14.953-4.671 22.43-1.439.365.156.698.118.859-.128.16-.244.12-.664-.103-1.075A63.255 63.255 0 0 0 0 0" transform="translate(497.152 596.974)"/>
+                </g>
+            </svg>
+            <p class="pie-chart__text">
+                <span class="pie-chart__percent-whole">72<span class="pie-chart__percent-decimal">.7</span></span>
+                <span class="pie-chart__loyalty">Лояльность</span>
+                <span class="pie-chart__level">ниже среднего</span>
+                <span class="pie-chart__segment">по отрасли: FMCG<br>значений слева от медианы<br>52,0% - 83,1%</span>
+                <span class="pie-chart__difference">3.1</span>
+            </p>
+        </div>
+        <ul class="results enps__results js-results">
+            <li class="results__item">
+                <span class="results__category js-category"></span>
+                <div class="results__amount">
+                    <span class="results__percent js-percent"></span><br>
+                    <span class="results__users js-users"></span>
+                </div>
+                <div class="bar-chart js-bar-chart">
+                    <svg class="bar-chart__svg" viewBox="0 0 130 50">
+                        <rect class="bar-chart__base"/>
+                        <rect class="bar-chart__promoter-new js-new-percent" height="40"/>
+                        <rect class="bar-chart__promoter-last js-last-percent" height="10" y="40"/>
+                    </svg>
+                    <span class="bar-chart__difference js-difference"></span>
+                </div>
+            </li>
+            <li class="results__item">
+                <span class="results__category js-category"></span>
+                <div class="results__amount">
+                    <span class="results__percent js-percent"></span><br>
+                    <span class="results__users js-users"></span>                   
+                </div>
+                <div class="bar-chart js-bar-chart">
+                    <svg class="bar-chart__svg" viewBox="0 0 130 50">
+                        <rect class="bar-chart__base"/>
+                        <rect class="bar-chart__skeptic-new js-new-percent" height="40"/>
+                        <rect class="bar-chart__skeptic-last js-last-percent" height="10" y="40"/>
+                    </svg>
+                    <span class="bar-chart__difference js-difference"></span>
+                </div>
+            </li>
+            <li class="results__item">
+                <span class="results__category js-category"></span>
+                <div class="results__amount">
+                    <span class="results__percent js-percent"></span><br>
+                    <span class="results__users js-users"></span>                   
+                </div>
+                <div class="bar-chart js-bar-chart">
+                    <svg class="bar-chart__svg" viewBox="0 0 130 50">
+                        <rect class="bar-chart__base"/>
+                        <rect class="bar-chart__critic-new js-new-percent" height="40"/>
+                        <rect class="bar-chart__critic-last js-last-percent" height="10" y="40"/>
+                    </svg>
+                    <span class="bar-chart__difference js-difference"></span>
+                </div>
+            </li>
+        </ul>
+    </article>
+</body>
+</html>
