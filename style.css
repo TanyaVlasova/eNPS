@@ -16,8 +16,8 @@ body{
     width: 730px;
     height: 900px;
     padding: 15px;
-    margin: auto;
     border-radius: 30px;
+    margin: auto;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     color: #555;
@@ -39,9 +39,10 @@ body{
     width: 100%;
     font-family: 'Gotham Pro', sans-serif;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;   
+    gap: 10px;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
 }
 
 .form__label{
@@ -51,36 +52,32 @@ body{
     margin-top: auto;
 }
 
-.form :last-child{
-    margin: auto 0;
-}
-
 .form__text{
-    width: 130px;
+    width: 80%;
     height: 35px;
-    padding: 0 10px;
+    padding: 0 15px;
     border: 1px solid rgb(230, 230, 230);
     border-radius: 5px;
-    line-height: 35px;
+    font: 16px/35px 'Gotham Pro';
     color: #555;
-    font-size: 16px;
 }
 
 .form__text:focus{
-    border: 1px solid rgb(163, 163, 163);
+    border: 1px solid rgb(174, 174, 174);
 }
 
 .form__submit{
-    width: 130px;
     height: 35px;
     padding: 0 10px;
     border: 1px solid rgb(230, 230, 230);
-    background-color: rgb(216, 216, 216);
     border-radius: 5px;
-    line-height: 35px;
+    font: 16px/35px 'Gotham Pro';
     color: #555;
-    font-size: 16px;
+    background-color: rgb(216, 216, 216);
     cursor: pointer;
+    grid-column: -2 / -1;
+    grid-row: 2 / 3;
+    justify-self: end;
 }
 
 .form__submit:hover{
@@ -100,10 +97,10 @@ body{
 .pie-chart__svg{
     width: 100%;
     height: 100%;
-    transform: rotate(-71deg);
     position: absolute;
     top: 0;
     left: 0;
+    transform: rotate(-71deg);
 }
 
 .pie-chart__base{
@@ -146,8 +143,8 @@ body{
 }
 
 .pie-chart__flag{
-    width: 65px;
     fill: #ddd;
+    width: 65px;
     position: absolute;
     top: -35px;
     left: 0;
@@ -167,22 +164,17 @@ body{
 }
 
 .pie-chart__percent-whole{
-    font-family: 'Gotham Pro', sans-serif;
-    font-size: 80px;
+    font: 80px/60% 'Gotham Pro';
     position: relative;
-    letter-spacing: -2px;
-    line-height: 60%;
 }
 
 .pie-chart__percent-decimal{
-    font-family: 'Gotham Pro', sans-serif;
-    font-size: 40px;
+    font: 40px 'Gotham Pro';
 }
 
 .pie-chart__percent-whole::after{
-    font-family: 'Gotham Pro', sans-serif;
     content: '%';
-    font-size: 28px;
+    font: 28px 'Gotham Pro';
     color: #888;
     position: absolute;
     top: -20px;
@@ -190,31 +182,24 @@ body{
 }
 
 .pie-chart__loyalty{
-    font-size: 35px;
-    font-weight: 600;
-    line-height: 130%;
+    font: 600 35px/130% Arial;
 }
 
 .pie-chart__level{
-    font-size: 28px;
-    font-weight: 600;
+    font: 600 28px/130% Arial;
     color: #fcd329;
-    line-height: 130%;
-    letter-spacing: -1px;
 }
 
 .pie-chart__segment{
-    font-size: 18px;
+    font: 18px/120% Arial;
     color: #888;
-    line-height: 120%;
 }
 
 .pie-chart__difference{
-    font-size: 28px;
+    padding-left: 35px;
+    font: 28px/200% Arial;
     color: #70a84b;
     position: relative;
-    padding-left: 35px;
-    line-height: 200%;
 }
 
 .pie-chart__difference::before{
@@ -233,7 +218,7 @@ body{
 
 .results__item{
     display: grid;
-    grid-template-columns: 3fr 1.7fr 2fr;
+    grid-template-columns: 3fr 1.5fr 3fr;
     gap: 10px;
 }
 
@@ -246,22 +231,18 @@ body{
 }
 
 .results__category{
-    padding: 5px;
-    font-size: 22px;
-    font-weight: 600;
+    padding: 5px 0;
+    font: 600 22px Arial;
     word-break: break-all;
 }
 
 .results__amount{
-    padding: 5px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 120%;
+    padding: 5px 0;
+    font: 600 18px/120% Arial;
     text-align: right;
 }
 
 .results__users{
-    font-size: 18px;
     position: relative;
     color: #999;
     padding-right: 20px;
@@ -272,7 +253,7 @@ body{
     width: 18px;
     height: 18px;
     position: absolute;
-    top: 2px;
+    top: 1px;
     right: -4px;
     background: url(human.svg) no-repeat;
 }
@@ -287,19 +268,13 @@ body{
     position: relative;
 }
 
-.bar-chart__svg{
-    
-}
-
 .bar-chart__difference{
-    font-size: 18px;
+    font: 18px/120% Arial;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     right: 5px;
+    transform: translateY(-50%);
 }
-
-
 
 .bar-chart__base{
     width: 100%;
@@ -342,12 +317,9 @@ body{
 }
 
 @media (max-width: 768px) {
-    html{
-        font-size: 10px;
-    }
-
     .enps{
-        width: 430px;
+        max-width: 480px;
+        width: 100%;
     }
 
     .enps__form,
@@ -356,34 +328,96 @@ body{
     }
 
     .form{
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    }
+
+    .form__label{
+        font: 12px 'Gotham Pro';
     }
 
     .form__text{
-        width: 70px;
+        font: 12px/30px 'Gotham Pro';
+        height: 30px;
+    }
+
+    .form__submit{
+        height: 30px;
+        font: 12px/30px 'Gotham Pro';
+        padding: 0 10px;
+        grid-column: 1 / -1;
+        grid-row: -2 / -1;
+        justify-self: start;
     }
 
     .pie-chart{
-        width: 300px;
-        height: 300px;
-    }
-
-    .results{
-        width: 300px;
-    }
-
-    .results__users::after{
-        width: 10px;
-        height: 10px;
+        width: 280px;
+        height: 280px;
     }
 
     .pie-chart__flag{
-        width: 60px;
-        top: -30px;
+        width: 45px;
+        top: -20px;
     }
 
     .pie-chart__text{
-        padding-top: 20px
+        padding-top: 30px
+    }
+
+    .pie-chart__percent-whole{
+        font-size: 56px;
+    }
+    
+    .pie-chart__percent-decimal{
+        font-size: 28px;
+    }
+    
+    .pie-chart__percent-whole::after{
+        font-size: 20px;
+        top: -13px;
+    }
+    
+    .pie-chart__loyalty{
+        font-size: 24px;
+    }
+    
+    .pie-chart__level{
+        font-size: 20px;
+    }
+    
+    .pie-chart__segment{
+        font-size: 13px;
+    }
+    
+    .pie-chart__difference{
+        padding-left: 25px;
+        font-size: 20px;
+    }
+
+    .results{
+        width: 260px;
+    }
+
+    .results__category,
+    .results__amount{
+        font-size: 12px;
+        padding: 2px 0;
+    }
+
+    .bar-chart__difference{
+        font-size: 12px;
+    }
+
+    .results__users{
+        padding-right: 12px;
+    }
+
+    .results__users::after{
+        width: 12px;
+        height: 12px;
+    }
+
+    .bar-chart{
+        width: 100px;
+        height: 35px;;
     }
 }
